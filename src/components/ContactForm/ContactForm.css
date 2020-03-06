@@ -1,0 +1,23 @@
+.ContactForm-form {
+  border: 1px solid #000;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  max-width: 500px;
+  padding: 10px;
+}
+
+span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+button {
+  width: 120px;
+}
