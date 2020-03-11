@@ -31,16 +31,21 @@ export default class App extends Component {
       number,
     };
 
-    this.setState(prevState => {
-      const isName = prevState.contacts.some(contact =>
-        contact.name.toLowerCase().includes(name.toLowerCase()),
-      );
-      return isName
-        ? alert(`${name} is already in contacts`)
-        : {
-            contacts: [...prevState.contacts, contact],
-          };
-    });
+    const isName = this.state.contacts.some(contact =>
+      contact.name.toLowerCase().includes(name.toLowerCase()),
+    );
+
+    console.log(isName);
+
+    if (isName) {
+      alert(`${name} is already in contacts`);
+    } else {
+      this.setState(prevState => {
+        return {
+          contacts: [...prevState.contacts, contact],
+        };
+      });
+    }
   };
 
   getVisibleContacts = () => {
@@ -58,11 +63,9 @@ export default class App extends Component {
       <div>
         <h1> Phonebook </h1> <ContactForm onAddContact={this.addContact} />{' '}
         <h2> Contacts </h2>{' '}
-        <Filter
-          value={filter}
-          onChange={this.changeFilter}
-          contacts={contacts}
-        />{' '}
+        {contacts.length > 1 && (
+          <Filter value={filter} onChange={this.changeFilter} />
+        )}
         {contacts.length > 0 && (
           <ContactList
             onDeleteContact={this.deleteContact}
