@@ -61,8 +61,8 @@ export default class App extends Component {
     const visibleContacts = this.getVisibleContacts();
     return (
       <div>
-        <h1> Phonebook </h1> <ContactForm onAddContact={this.addContact} />{' '}
-        <h2> Contacts </h2>{' '}
+        <h1> Phonebook </h1> <ContactForm onAddContact={this.addContact} />
+        <h2> Contacts </h2>
         {contacts.length > 1 && (
           <Filter value={filter} onChange={this.changeFilter} />
         )}
@@ -71,7 +71,7 @@ export default class App extends Component {
             onDeleteContact={this.deleteContact}
             contacts={visibleContacts}
           />
-        )}{' '}
+        )}
       </div>
     );
   }
